@@ -16,5 +16,5 @@ public interface Logica {
 
     String executa(HttpServletRequest req, HttpServletResponse res)
             throws Exception;
-
+//quqaherh
 }
