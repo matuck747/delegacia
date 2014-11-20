@@ -40,20 +40,62 @@
                 </div>
             </nav>
 
-        <form action ="mvc">
-            
-            Nome : <input type ="text" name ="nome" /><br/>
-            CPF : <input type ="text" name ="cpf" /><br/>
-            Residência : <input type ="text" name ="residencia"/><br/>
-            Tipo de Delito : <input type ="text" name ="tipoDelito"/> <br/>
-            Data : <input type ="text" name ="data" /> <br/>
-            Hora : <input type = "text" name = "hora" /><br/>
-            Local : <input type = "text" name = "local"/><br/>
-            Estado : <input type = "text" name = "estado"/><br/>
-            Imagem (URL) : <input type = "text" name = "img"/><br/>
-            <input type="hidden" name="logica" value="AdicionaDelitoLogic"/>
-            <input type ="submit" value ="Gravar" />
+            <form role="form" action ="mvc">
+                <div class="form-group">
+                    <label for="inputEmail">Nome</label>
+                    <input type="text" class="form-control" id="inputEmail" name ="nome">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">CPF</label>
+                    <input type="text" class="form-control" id="inputSenha" name ="cpf">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Residência</label>
+                    <input type="text" class="form-control" id="inputSenha" name ="residencia">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Tipo de Delito</label>
+                    <input type="text" class="form-control" id="inputSenha" name ="tipoDelito">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Data</label>
+                    <input type="text" class="form-control" id="inputSenha" name ="data">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Hora</label>
+                    <input type="text" class="form-control" id="inputSenha" name = "hora">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Local</label>
+                    <input type="text" class="form-control" id="inputSenha" name = "local">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Estado</label>
+                    <input type="text" class="form-control" id="inputSenha" name = "estado">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Imagem (URL)</label>
+                    <input type="text" class="form-control" id="inputSenha" name = "img">
+                </div>
 
-        </form>
+                <input type="hidden" name="logica" value="AdicionaDelitoLogic"/>
+                <button type="submit" class="btn btn-default">Gravar</button>
+            </form>       
+
+            <!--            <form action ="mvc">
+            
+                            Nome : <input type ="text" name ="nome" /><br/>
+                            CPF : <input type ="text" name ="cpf" /><br/>
+                            Residência : <input type ="text" name ="residencia"/><br/>
+                            Tipo de Delito : <input type ="text" name ="tipoDelito"/> <br/>
+                            Data : <input type ="text" name ="data" /> <br/>
+                            Hora : <input type = "text" name = "hora" /><br/>
+                            Local : <input type = "text" name = "local"/><br/>
+                            Estado : <input type = "text" name = "estado"/><br/>
+                            Imagem (URL) : <input type = "text" name = "img"/><br/>
+                            <input type="hidden" name="logica" value="AdicionaDelitoLogic"/>
+                            <input type ="submit" value ="Gravar" />
+            
+                        </form>-->
     </body>
 </html>
