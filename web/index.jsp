@@ -38,7 +38,17 @@
                         </ul>
                     </div>
                 </div>
-            </nav>   
+            </nav>  
+            
+            <div class="row">
+            
+                <div class="col-xs-12">
+                    <img src="http://i2.kym-cdn.com/entries/icons/original/000/016/574/kden.PNG" class="img-responsive" style="width:100%">
 
+                </div>
+           
+        </div>
+
+        </div>     
     </body>
 </html>

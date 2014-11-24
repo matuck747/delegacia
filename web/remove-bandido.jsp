@@ -43,78 +43,54 @@
                     </div>
                 </div>
             </nav>
-            
-        <form action ="mvc">
 
-            ID : <input type ="text" name ="id" /><br/>
-            <input type="hidden" name="logica" value="RemoveDelitoLogica"/>
-            <input type ="submit" value ="REMOVER" />
+            <form role="form" action ="mvc">
+                <div class="form-group">
+                    <label for="inputEmail">ID</label>
+                    <input type="text" class="form-control" id="inputEmail" name ="id">
+                </div>
+                <input type="hidden" name="logica" value="RemoveDelitoLogica"/>
+                <button type="submit" class="btn btn-default">Remover</button>
+            </form> 
 
-        </form>
+            <table class="table table-hover">
+                <thead>
+                <td>ID</td>
+                <td>Nome</td>
+                <td>CPF</td>
+                <td>Residencia</td>
+                <td>Tipo de Delito</td>
+                <td>Data</td>
+                <td>Hora</td>
+                <td>Local</td>
+                <td>Estado</td>
+                <td>IMG</td>
 
-        <style>
-            table {
-                font-family: verdana,arial,sans-serif;
-                font-size:11px;
-                color:#333333;
-                border-width: 1px;
-                border-color: #666666;
-                border-collapse: collapse;
-            }
-            tr {
-                border-width: 1px;
-                padding: 8px;
-                border-style: solid;
-                border-color: #666666;
-                background-color: #dedede;
-            }
-            td {
-                border-width: 1px;
-                padding: 8px;
-                border-style: solid;
-                border-color: #666666;
-                background-color: #ffffff;
-            }
-        </style>
+                </thead>
+                <%
+                    DelitoDAO dao = new DelitoDAO();
+                    ArrayList<Delito> delitos = dao.getLista();
 
-        <table>
-            <thead>
-            <td>ID</td>
-            <td>Nome</td>
-            <td>CPF</td>
-            <td>Residencia</td>
-            <td>Tipo de Delito</td>
-            <td>Data</td>
-            <td>Hora</td>
-            <td>Local</td>
-            <td>Estado</td>
-            <td>IMG</td>
-           
-        </thead>
-        <%
-            DelitoDAO dao = new DelitoDAO();
-            ArrayList<Delito> delitos = dao.getLista();
+                    for (Delito delito : delitos) {
+                %>
+                <tr>
+                    <td> <%= delito.getId()%></td>
+                    <td> <%= delito.getNome()%></td>
+                    <td> <%= delito.getCpf()%> </td>
+                    <td> <%= delito.getResidencia()%> </td>
+                    <td> <%= delito.getTipoDelito()%> </td>
+                    <td> <%= delito.getData()%> </td>
+                    <td> <%= delito.getHora()%> </td>
+                    <td> <%= delito.getLocal()%> </td>
+                    <td> <%= delito.getEstado()%> </td>
+                    <td> <img src="<%=delito.getImg()%>" height="180" width="180"> </td>
 
-            for (Delito delito : delitos) {
-        %>
-        <tr>
-            <td> <%= delito.getId()%></td>
-            <td> <%= delito.getNome()%></td>
-            <td> <%= delito.getCpf()%> </td>
-            <td> <%= delito.getResidencia()%> </td>
-            <td> <%= delito.getTipoDelito()%> </td>
-            <td> <%= delito.getData()%> </td>
-            <td> <%= delito.getHora()%> </td>
-            <td> <%= delito.getLocal()%> </td>
-            <td> <%= delito.getEstado()%> </td>
-            <td> <img src="<%=delito.getImg()%>" height="200" width="200"> </td>
-            
-        </tr>
-        <%
-            }
-        %>
-    </table>
+                </tr>
+                <%
+                    }
+                %>
+            </table>
 
-
-</body>
+        </div>
+    </body>
 </html>

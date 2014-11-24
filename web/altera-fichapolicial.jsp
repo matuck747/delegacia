@@ -45,89 +45,111 @@
                 </div>
             </nav>
 
-        <form action ="mvc">
+            <form role="form" action ="mvc">
+                <div class="form-group">
+                    <label for="inputEmail">ID</label>
+                    <input type="text" class="form-control" id="inputEmail" name ="id">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Nome</label>
+                    <input type="text" class="form-control" id="inputEmail" name ="nome">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">CPF</label>
+                    <input type="text" class="form-control" id="inputSenha" name ="cpf">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Residência</label>
+                    <input type="text" class="form-control" id="inputSenha" name ="residencia">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Tipo de Delito</label>
+                    <input type="text" class="form-control" id="inputSenha" name ="tipoDelito">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Data</label>
+                    <input type="text" class="form-control" id="inputSenha" name ="data">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Hora</label>
+                    <input type="text" class="form-control" id="inputSenha" name = "hora">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Local</label>
+                    <input type="text" class="form-control" id="inputSenha" name = "local">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Estado</label>
+                    <input type="text" class="form-control" id="inputSenha" name = "estado">
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Imagem (URL)</label>
+                    <input type="text" class="form-control" id="inputSenha" name = "img">
+                </div>
 
-            ID : <input type ="text" name ="id" /><br/>
-            Nome : <input type ="text" name ="nome" /><br/>
-            CPF : <input type ="text" name ="cpf" /><br/>
-            Residência : <input type ="text" name ="residencia"/><br/>
-            Tipo de Delito : <input type ="text" name ="tipoDelito"/> <br/>
-            Data : <input type ="text" name ="data" /> <br/>
-            Hora : <input type = "text" name = "hora" /><br/>
-            Local : <input type = "text" name = "local"/><br/>
-            Estado : <input type = "text" name = "estado"/><br/>
-            Imagem (URL) : <input type = "text" name = "img"/><br/>
-            <input type="hidden" name="logica" value="AlteraDelitoLogica"/>
-            <input type ="submit" value ="Gravar" />
+                <input type="hidden" name="logica" value="AlteraDelitoLogica"/>
+                <button type="submit" class="btn btn-default">Alterar</button>
+            </form>  
 
-        </form>
+            <!--        <form action ="mvc">
+            
+                        ID : <input type ="text" name ="id" /><br/>
+                        Nome : <input type ="text" name ="nome" /><br/>
+                        CPF : <input type ="text" name ="cpf" /><br/>
+                        Residência : <input type ="text" name ="residencia"/><br/>
+                        Tipo de Delito : <input type ="text" name ="tipoDelito"/> <br/>
+                        Data : <input type ="text" name ="data" /> <br/>
+                        Hora : <input type = "text" name = "hora" /><br/>
+                        Local : <input type = "text" name = "local"/><br/>
+                        Estado : <input type = "text" name = "estado"/><br/>
+                        Imagem (URL) : <input type = "text" name = "img"/><br/>
+                        <input type="hidden" name="logica" value="AlteraDelitoLogica"/>
+                        <input type ="submit" value ="Alterar" />
+            
+                    </form>-->
 
-        </br>
-        </br>
-        Tabela para consulta ao alterar delitos.
+            </br>
+            </br>
+            <h1> Tabela para consulta ao alterar delitos. </h1>
 
-        <style>
-            table {
-                font-family: verdana,arial,sans-serif;
-                font-size:11px;
-                color:#333333;
-                border-width: 1px;
-                border-color: #666666;
-                border-collapse: collapse;
-            }
-            tr {
-                border-width: 1px;
-                padding: 8px;
-                border-style: solid;
-                border-color: #666666;
-                background-color: #dedede;
-            }
-            td {
-                border-width: 1px;
-                padding: 8px;
-                border-style: solid;
-                border-color: #666666;
-                background-color: #ffffff;
-            }
-        </style>
+            <table class="table table-hover">
+                <thead>
+                <td>ID</td>
+                <td>Nome</td>
+                <td>CPF</td>
+                <td>Residencia</td>
+                <td>Tipo de Delito</td>
+                <td>Data</td>
+                <td>Hora</td>
+                <td>Local</td>
+                <td>Estado</td>
+                <td>Imagem</td>
 
-        <table>
-            <thead>
-            <td>ID</td>
-            <td>Nome</td>
-            <td>CPF</td>
-            <td>Residencia</td>
-            <td>Tipo de Delito</td>
-            <td>Data</td>
-            <td>Hora</td>
-            <td>Local</td>
-            <td>Estado</td>
-            <td>Imagem</td>
+                </thead>
+                <%
+                    DelitoDAO dao = new DelitoDAO();
+                    ArrayList<Delito> delitos = dao.getLista();
 
-        </thead>
-        <%
-            DelitoDAO dao = new DelitoDAO();
-            ArrayList<Delito> delitos = dao.getLista();
-
-            for (Delito delito : delitos) {
-        %>
-        <tr>
-            <td> <%= delito.getId()%></td>
-            <td> <%= delito.getNome()%></td>
-            <td> <%= delito.getCpf()%> </td>
-            <td> <%= delito.getResidencia()%> </td>
-            <td> <%= delito.getTipoDelito()%> </td>
-            <td> <%= delito.getData()%> </td>
-            <td> <%= delito.getHora()%> </td>
-            <td> <%= delito.getLocal()%> </td>
-            <td> <%= delito.getEstado()%> </td>
-            <td> <img src="<%= delito.getImg()%>" height="200" width="200"> </td>
+                    for (Delito delito : delitos) {
+                %>
+                <tr>
+                    <td> <%= delito.getId()%></td>
+                    <td> <%= delito.getNome()%></td>
+                    <td> <%= delito.getCpf()%> </td>
+                    <td> <%= delito.getResidencia()%> </td>
+                    <td> <%= delito.getTipoDelito()%> </td>
+                    <td> <%= delito.getData()%> </td>
+                    <td> <%= delito.getHora()%> </td>
+                    <td> <%= delito.getLocal()%> </td>
+                    <td> <%= delito.getEstado()%> </td>
+                    <td> <img src="<%= delito.getImg()%>" height="180" width="180"> </td>
 
 
-        </tr>
-        <%
-            }
-        %>
-    </table>
-</body>
+                </tr>
+                <%
+                    }
+                %>
+            </table>
+        </div>
+    </body>
 </html>
